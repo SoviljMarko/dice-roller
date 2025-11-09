@@ -8,8 +8,8 @@ public class Main {
         String numberOfDices = "";;
 
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter dice");
 
+        System.out.println("Enter dice");
         String dicesToRoll = myObj.nextLine();
 
         if(DiceDecoder.syntaxCorrectness(dicesToRoll)){
