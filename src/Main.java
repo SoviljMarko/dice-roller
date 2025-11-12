@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String diceType = "";
-        String numberOfDices = "";;
+        int diceType = 0;
+        int numberOfDices = 0;
 
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 
@@ -18,6 +18,10 @@ public class Main {
         } else {
             System.out.println("Wrong syntax");
         }
+
+        // ovo gore treba srediti ^
+        // uvesti ogranicenje za kockice u dice decoder
+        
         System.out.println("Roll of all dices = " + SumOfAllDices.sumOfRolls(numberOfDices, diceType));
 
     }

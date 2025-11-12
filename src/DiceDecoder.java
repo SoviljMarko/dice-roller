@@ -1,15 +1,17 @@
 public class DiceDecoder {
 
-    public static String diceType (String input){
+    public static int diceType (String input){
         String diceType = input.toLowerCase().split("d")[1];
-        System.out.println("Type of Dice = " + diceType);
-        return diceType;
+        int diceTypeToInt = Integer.parseInt(diceType);
+        System.out.println("Type of Dice = " + diceTypeToInt);
+        return diceTypeToInt;
     }
 
-    public static String numberOfDices (String input){
+    public static int numberOfDices (String input){
         String numberOfDices = input.toLowerCase().split("d")[0];
-        System.out.println("Number of Dices = " + numberOfDices);
-        return numberOfDices;
+        int numberOfDicesToInt = Integer.parseInt(numberOfDices);
+        System.out.println("Number of Dices = " + numberOfDicesToInt);
+        return numberOfDicesToInt;
     }
 
     public static boolean syntaxCorrectness (String input) {
@@ -20,4 +22,9 @@ public class DiceDecoder {
         }
     }
 
+    public static void numberOfDicesLimit (int numberOfDices){
+        if(numberOfDices > 100 || numberOfDices <= 0){
+            System.out.println("Invalid number of dices");
+        }
+    }
 }

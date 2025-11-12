@@ -1,9 +1,8 @@
 public class SumOfAllDices {
 
-    public static int sumOfRolls (String numberOfDices, String diceType){
-        int numberOfDicesInt = Integer.parseInt(numberOfDices);
+    public static int sumOfRolls (int numberOfDices, int diceType){
         int sum = 0;
-        for (int i = 0; i < numberOfDicesInt; i++){
+        for (int i = 0; i < numberOfDices; i++){
             int roll = DiceRoller.oneRoll(diceType);
 
             if(roll > 0) {
