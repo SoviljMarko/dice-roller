@@ -7,12 +7,12 @@ public class DiceDecoder {
         return diceTypeToInt;
     }
 
-    public static int numberOfDices (String input){
-        String numberOfDices = input.toLowerCase().split("d")[0];
-        int numberOfDicesToInt = Integer.parseInt(numberOfDices);
-        System.out.println("Number of Dices = " + numberOfDicesToInt);
-        return numberOfDicesToInt;
-    }
+//    public static int numberOfDices (String input){
+//        String numberOfDices = input.toLowerCase().split("d")[0];
+//        int numberOfDicesToInt = Integer.parseInt(numberOfDices);
+//        System.out.println("Number of Dices = " + numberOfDicesToInt);
+//        return numberOfDicesToInt;
+//    }
 
     public static boolean syntaxCorrectness (String input) {
         if (input.toLowerCase().contains("d")){
@@ -22,9 +22,28 @@ public class DiceDecoder {
         }
     }
 
-    public static void numberOfDicesLimit (int numberOfDices){
+    public static int numberOfDices (String input){
+        String numberOfDices = input.toLowerCase().split("d")[0];
+        int numberOfDicesToInt = Integer.parseInt(numberOfDices);
+
+        if(numberOfDicesLimit(numberOfDicesToInt)){
+           System.out.println("Number of Dices = " + numberOfDicesToInt);
+           return numberOfDicesToInt;
+       }
+
+        return -1;
+
+    }
+
+    public static boolean numberOfDicesLimit (int numberOfDices){
         if(numberOfDices > 100 || numberOfDices <= 0){
-            System.out.println("Invalid number of dices");
+            System.out.println("Invalid number of dices Marko");
+            return false;
+        }else{
+            return true;
         }
     }
+
+
+
 }

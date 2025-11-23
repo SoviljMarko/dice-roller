@@ -15,20 +15,21 @@ public class Main {
         if(DiceDecoder.syntaxCorrectness(dicesToRoll)){
             numberOfDices = DiceDecoder.numberOfDices(dicesToRoll);
             diceType = DiceDecoder.diceType(dicesToRoll);
+
+            System.out.println("Roll of all dices = " + SumOfAllDices.sumOfRolls(numberOfDices, diceType));
+
         } else {
             System.out.println("Wrong syntax");
         }
 
         // ovo gore treba srediti ^
-        // uvesti ogranicenje za kockice u dice decoder
-        
-        System.out.println("Roll of all dices = " + SumOfAllDices.sumOfRolls(numberOfDices, diceType));
+        // prepraviti da ranije prekine program, da ne vrti sve
 
     }
 
-//    public static void testingRandom(int numberOfRolls, String diceType){
-//        for (int i = 0; i <= numberOfRolls; i++){
-//            System.out.println(mapDiceArray(diceType));
-//        }
-//    }
+    public static void damageAmplifier (String dicePlusAmp){
+        if (dicePlusAmp.contains("+")){
+            // sada npraviti filozofiju za Amplifier
+        }
+    }
 }
