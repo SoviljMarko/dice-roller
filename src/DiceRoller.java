@@ -2,6 +2,8 @@ import java.util.Random;
 
 public class DiceRoller {
 
+
+
     public static int oneRoll (int diceType){
         Random random = new Random();
         int roll;
@@ -26,4 +28,22 @@ public class DiceRoller {
 
         return roll;
     }
+
+    public static void initiationOfProcess (String dicesToRoll){
+        if(DiceDecoder.syntaxCorrectness(dicesToRoll)){
+
+            int numberOfDices = DiceDecoder.numberOfDices(dicesToRoll);
+            int diceType = DiceDecoder.diceType(dicesToRoll);
+
+            int finalSum = SumOfAllDices.sumOfRolls(numberOfDices, diceType);
+
+//            System.out.println("Roll of all dices = " + finalSum);
+            System.out.println(SumOfAllDices.list + " = "
+                    + finalSum);
+
+        } else {
+            System.out.println("Wrong syntax");
+        }
+    }
+
 }
