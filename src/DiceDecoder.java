@@ -41,10 +41,13 @@ public class DiceDecoder {
         if(kockice.contains("+")){
             System.out.println("imaju plus");
             String dice = kockice.split("\\+")[0];
-            String amp = kockice.split("\\+")[1];
-            System.out.println("Kockice su = " + dice);
-            System.out.println("Amplifier je = " + amp);
-            DiceRoller.initiationOfProcess(dice, amp);
+            System.out.println("this is dice one " + dice);
+            String rest = kockice.split("\\+")[1];
+            System.out.println("this is rest " + rest);
+
+            DiceRoller.initiationOfProcess(dice, rest);
+
+//            ovde treba za vise kockica da se prilagodi plus amplifier
         }else{
             System.out.println("nemaju plus");
             DiceRoller.initiationOfProcess(kockice);
