@@ -11,7 +11,10 @@ public class Main {
 
 //        DiceRoller.initiationOfProcess(dicesToRoll);
 
-        DiceDecoder.prepoznavanjeKockia(dicesToRoll);
+//        DiceDecoder.prepoznavanjeKockia(dicesToRoll); <--> ovo je vazeca
+
+//        test.prepoznavanjeKockia(dicesToRoll); <---> test
+        test.uhvatiSveKockice(dicesToRoll);
 
         // prepraviti da ranije prekine program, da ne vrti sve
 

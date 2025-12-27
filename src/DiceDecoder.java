@@ -47,7 +47,7 @@ public class DiceDecoder {
 
             DiceRoller.initiationOfProcess(dice, rest);
 
-//            ovde treba za vise kockica da se prilagodi plus amplifier
+//            ostalo je da se radi sada za vise kockica, idemo do 7 kockica, toliko opcija ima poyy
         }else{
             System.out.println("nemaju plus");
             DiceRoller.initiationOfProcess(kockice);

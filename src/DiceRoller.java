@@ -59,8 +59,8 @@ public class DiceRoller {
                 int numberOfDicesSecond = DiceDecoder.numberOfDices(diceOrAmplifier);
                 int diceTypeSecond = DiceDecoder.diceType(diceOrAmplifier);
                 int secondDice = SumOfAllDices.sumOfRolls(numberOfDicesSecond, diceTypeSecond);
-                System.out.println("List of two dices ->"+ SumOfAllDices.list +
-                        "Sum of two dices = " + (firstDice + secondDice));
+                System.out.println("List of two dices -> "+ SumOfAllDices.list +
+                        " Sum of two dices = " + (firstDice + secondDice));
             }else{
                 amplifierToInt = Integer.valueOf(diceOrAmplifier);
                 System.out.println(SumOfAllDices.list +" + "+ amplifierToInt + " = "
