@@ -21,6 +21,7 @@ public class test {
 
     }
 
+    // prepoznavanje kockica
     public static void uhvatiSveKockice(String input){
         ArrayList<String> list = new ArrayList<>();
         if (!input.contains("+")) {
@@ -38,6 +39,7 @@ public class test {
         }
 
         System.out.println(list);
+        DiceRoller.simplifiedInitiationOfProcess(list);
     }
 }
 

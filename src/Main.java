@@ -11,18 +11,15 @@ public class Main {
 
 //        DiceRoller.initiationOfProcess(dicesToRoll);
 
-//        DiceDecoder.prepoznavanjeKockia(dicesToRoll); <--> ovo je vazeca
+//       DiceDecoder.prepoznavanjeKockia(dicesToRoll); <--> ovo je vazeca
 
 //        test.prepoznavanjeKockia(dicesToRoll); <---> test
         test.uhvatiSveKockice(dicesToRoll);
 
-        // prepraviti da ranije prekine program, da ne vrti sve
 
     }
+    // 1. resiti "DiceRoller" da prihvata novi model DMG AMP
+    // 2. prepraviti da ranije prekine program, da ne vrti sve
+    // 3. trebalo bi i srediti razmake, da ne puca program zbog toga
 
-    public static void damageAmplifier (String dicePlusAmp){
-        if (dicePlusAmp.contains("+")){
-            // sada npraviti filozofiju za Amplifier
-        }
-    }
 }

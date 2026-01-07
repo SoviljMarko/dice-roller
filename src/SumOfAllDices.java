@@ -12,26 +12,25 @@ public class SumOfAllDices {
             if(roll > 0) {
                 System.out.println(i + 1 + ". Roll je " + roll);
                 arrayOfRolls(roll);
-                sum += roll;
-                System.out.println("through process sum is = " + sum);
                 System.out.println("*************************************");
             }else {
                 System.out.println("Invalid Dice");
                 break;
             }
         }
-        return sum;
+        return sumOfAllFromList(list);
     }
 
     public static void arrayOfRolls (int roll){
         list.add(roll);
-//        System.out.println(list);
     }
 
-    public static void convertArrayToNumbersWithPluses(){
-        for (int i = 0; i < list.size(); i++){
-
+    public static int sumOfAllFromList(ArrayList<Integer> list){
+        int sum = 0;
+        for (Integer integer : list) {
+            sum += integer;
         }
+        return sum;
     }
 
 }

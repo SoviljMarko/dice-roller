@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class DiceRoller {
@@ -69,6 +70,28 @@ public class DiceRoller {
             System.out.println(SumOfAllDices.list);
         } else {
             System.out.println("Wrong syntax");
+        }
+    }
+
+    // ovo je dodato kao lakse resenje, treba ga izmeniti da postane
+    // validan i za DMG AMP, a ne samo za kockice
+    public static void simplifiedInitiationOfProcess (ArrayList<String> lista){
+        for(int i = 0; i < lista.size(); i++){
+            System.out.println(lista.get(i));
+
+            if(DiceDecoder.syntaxCorrectness(lista.get(i))){
+
+                int numberOfDices = DiceDecoder.numberOfDices(lista.get(i));
+                int diceType = DiceDecoder.diceType(lista.get(i));
+
+                int finalSum = SumOfAllDices.sumOfRolls(numberOfDices, diceType);
+
+                System.out.println(SumOfAllDices.list + " = "
+                        + finalSum);
+
+            } else {
+                System.out.println("Wrong syntax");
+            }
         }
     }
 }
