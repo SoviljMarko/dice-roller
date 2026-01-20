@@ -24,22 +24,33 @@ public class test {
     // prepoznavanje kockica
     public static void uhvatiSveKockice(String input){
         ArrayList<String> list = new ArrayList<>();
-        if (!input.contains("+")) {
-            list.add(input);
-            System.out.println(list);
-            return;
-        }
 
-        String[] parts = input.split("\\+");
+        input = input.replaceAll("\\s+", "").toLowerCase();
 
-        for (String part : parts) {
-            if (!part.isEmpty()) {
-                list.add(part);
+        if (input.matches("[0-9Dd+]+")) {
+
+            if (!input.contains("+")) {
+                list.add(input);
+                System.out.println(list);
+                return;
             }
+
+            String[] parts = input.split("\\+");
+
+            for (String part : parts) {
+                if (!part.isEmpty()) {
+                    list.add(part);
+                }
+            }
+
+            System.out.println(list);
+//        DiceRoller.simplifiedInitiationOfProcess(list);
+            DiceRoller.testZaPravuVerziju(list);
+        } else {
+            System.out.println("invalid input");
         }
 
-        System.out.println(list);
-        DiceRoller.simplifiedInitiationOfProcess(list);
+
     }
 }
 

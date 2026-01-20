@@ -63,7 +63,7 @@ public class DiceRoller {
                 System.out.println("List of two dices -> "+ SumOfAllDices.list +
                         " Sum of two dices = " + (firstDice + secondDice));
             }else{
-                amplifierToInt = Integer.valueOf(diceOrAmplifier);
+                amplifierToInt = Integer.parseInt(diceOrAmplifier);
                 System.out.println(SumOfAllDices.list +" + "+ amplifierToInt + " = "
                         + (firstDice + amplifierToInt));
             }
@@ -76,13 +76,13 @@ public class DiceRoller {
     // ovo je dodato kao lakse resenje, treba ga izmeniti da postane
     // validan i za DMG AMP, a ne samo za kockice
     public static void simplifiedInitiationOfProcess (ArrayList<String> lista){
-        for(int i = 0; i < lista.size(); i++){
-            System.out.println(lista.get(i));
+        for (String s : lista) {
+            System.out.println(s);
 
-            if(DiceDecoder.syntaxCorrectness(lista.get(i))){
+            if (DiceDecoder.syntaxCorrectness(s)) {
 
-                int numberOfDices = DiceDecoder.numberOfDices(lista.get(i));
-                int diceType = DiceDecoder.diceType(lista.get(i));
+                int numberOfDices = DiceDecoder.numberOfDices(s);
+                int diceType = DiceDecoder.diceType(s);
 
                 int finalSum = SumOfAllDices.sumOfRolls(numberOfDices, diceType);
 
@@ -93,5 +93,22 @@ public class DiceRoller {
                 System.out.println("Wrong syntax");
             }
         }
+    }
+
+    public static void testZaPravuVerziju (ArrayList<String> lista){
+        int ampSum = 0;
+        int dicesSum = 0;
+        for (String s : lista){
+            if (DiceDecoder.syntaxCorrectness(s)){
+                int numberOfDices = DiceDecoder.numberOfDices(s);
+                int diceType = DiceDecoder.diceType(s);
+
+                dicesSum =  SumOfAllDices.sumOfRolls(numberOfDices, diceType);
+            }else if(DiceDecoder.isItDamageAmplifierCorrect(s)){
+                ampSum += DiceDecoder.isItDamageAmplifier(s);
+            }
+        }
+        System.out.println(SumOfAllDices.list + " = " + dicesSum);
+        System.out.println(ampSum);
     }
 }

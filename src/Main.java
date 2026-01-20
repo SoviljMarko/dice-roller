@@ -18,8 +18,8 @@ public class Main {
 
 
     }
-    // 1. resiti "DiceRoller" da prihvata novi model DMG AMP
-    // 2. prepraviti da ranije prekine program, da ne vrti sve
-    // 3. trebalo bi i srediti razmake, da ne puca program zbog toga
+    // 1. prepraviti da ranije prekine program, da ne vrti sve --- skoro gotovo
+    // 2. Ocistiti sve suvsne kodove, a ima ih bas mnogo i srediti test class-u,
+    // prepakovati gde sta treba
 
 }

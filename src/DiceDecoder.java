@@ -54,8 +54,15 @@ public class DiceDecoder {
         }
     }
 
-    public static void isItDamageAmplifier(){
+    public static boolean isItDamageAmplifierCorrect(String amp){
+        if (amp.matches("[0-9]*")){
+            return true;
+        }
+        return false;
+    }
 
+    public static int isItDamageAmplifier(String amp){
+        return  Integer.parseInt(amp);
     }
 
 }
