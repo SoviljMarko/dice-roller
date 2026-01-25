@@ -9,16 +9,12 @@ public class Main {
         System.out.println("Enter dice");
         String dicesToRoll = myObj.nextLine();
 
-
-        DiceDecoder.validateAndInitializeDiceRoll(dicesToRoll);
-
+        Dev.mainProcessLoop(dicesToRoll); // <---- testiram loop
+//        DiceDecoder.validateAndInitializeDiceRoll(dicesToRoll); <--- ovo je vazece
 
     }
-    // 1. prepraviti da ranije prekine program, da ne vrti sve --- skoro gotovo
-    // 2. Ocistiti sve suvsne kodove, a ima ih bas mnogo i srediti test class-u,
-    // prepakovati gde sta treba
 
-
-
+//    1. Napraviti loop koji ce da tera ceo flow programa
+//    2. napraviti bazu sa rollovima
 
 }
