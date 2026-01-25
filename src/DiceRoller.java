@@ -30,72 +30,8 @@ public class DiceRoller {
         return roll;
     }
 
-    public static void initiationOfProcess (String dicesToRoll){
-        if(DiceDecoder.syntaxCorrectness(dicesToRoll)){
 
-            int numberOfDices = DiceDecoder.numberOfDices(dicesToRoll);
-            int diceType = DiceDecoder.diceType(dicesToRoll);
-
-            int finalSum = SumOfAllDices.sumOfRolls(numberOfDices, diceType);
-
-//            System.out.println("Roll of all dices = " + finalSum);
-            System.out.println(SumOfAllDices.list + " = "
-                    + finalSum);
-
-        } else {
-            System.out.println("Wrong syntax");
-        }
-    }
-
-    public static void initiationOfProcess (String dicesToRoll,String diceOrAmplifier){
-        if(DiceDecoder.syntaxCorrectness(dicesToRoll)){
-
-            int amplifierToInt;
-
-            int numberOfDices = DiceDecoder.numberOfDices(dicesToRoll);
-            int diceType = DiceDecoder.diceType(dicesToRoll);
-            int firstDice = SumOfAllDices.sumOfRolls(numberOfDices, diceType);
-            System.out.println(firstDice);
-            if (DiceDecoder.syntaxCorrectness(diceOrAmplifier)){
-                int numberOfDicesSecond = DiceDecoder.numberOfDices(diceOrAmplifier);
-                int diceTypeSecond = DiceDecoder.diceType(diceOrAmplifier);
-                int secondDice = SumOfAllDices.sumOfRolls(numberOfDicesSecond, diceTypeSecond);
-                System.out.println("List of two dices -> "+ SumOfAllDices.list +
-                        " Sum of two dices = " + (firstDice + secondDice));
-            }else{
-                amplifierToInt = Integer.parseInt(diceOrAmplifier);
-                System.out.println(SumOfAllDices.list +" + "+ amplifierToInt + " = "
-                        + (firstDice + amplifierToInt));
-            }
-            System.out.println(SumOfAllDices.list);
-        } else {
-            System.out.println("Wrong syntax");
-        }
-    }
-
-    // ovo je dodato kao lakse resenje, treba ga izmeniti da postane
-    // validan i za DMG AMP, a ne samo za kockice
-    public static void simplifiedInitiationOfProcess (ArrayList<String> lista){
-        for (String s : lista) {
-            System.out.println(s);
-
-            if (DiceDecoder.syntaxCorrectness(s)) {
-
-                int numberOfDices = DiceDecoder.numberOfDices(s);
-                int diceType = DiceDecoder.diceType(s);
-
-                int finalSum = SumOfAllDices.sumOfRolls(numberOfDices, diceType);
-
-                System.out.println(SumOfAllDices.list + " = "
-                        + finalSum);
-
-            } else {
-                System.out.println("Wrong syntax");
-            }
-        }
-    }
-
-    public static void testZaPravuVerziju (ArrayList<String> lista){
+    public static void mainResult (ArrayList<String> lista){
         int ampSum = 0;
         int dicesSum = 0;
         for (String s : lista){
@@ -108,7 +44,10 @@ public class DiceRoller {
                 ampSum += DiceDecoder.isItDamageAmplifier(s);
             }
         }
-        System.out.println(SumOfAllDices.list + " = " + dicesSum);
-        System.out.println(ampSum);
+        System.out.println("All rolls -> " + SumOfAllDices.list + " Sum = " + dicesSum);
+        System.out.println("AMP -> " + ampSum);
+
+        System.out.println("Final output -> " + SumOfAllDices.list + " + " + ampSum
+                + " = " + (dicesSum + ampSum) );
     }
 }

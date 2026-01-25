@@ -9,17 +9,16 @@ public class Main {
         System.out.println("Enter dice");
         String dicesToRoll = myObj.nextLine();
 
-//        DiceRoller.initiationOfProcess(dicesToRoll);
 
-//       DiceDecoder.prepoznavanjeKockia(dicesToRoll); <--> ovo je vazeca
-
-//        test.prepoznavanjeKockia(dicesToRoll); <---> test
-        test.uhvatiSveKockice(dicesToRoll);
+        DiceDecoder.validateAndInitializeDiceRoll(dicesToRoll);
 
 
     }
     // 1. prepraviti da ranije prekine program, da ne vrti sve --- skoro gotovo
     // 2. Ocistiti sve suvsne kodove, a ima ih bas mnogo i srediti test class-u,
     // prepakovati gde sta treba
+
+
+
 
 }

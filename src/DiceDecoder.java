@@ -1,10 +1,36 @@
+import java.util.ArrayList;
+
 public class DiceDecoder {
+
+    public static void validateAndInitializeDiceRoll(String input) {
+        ArrayList<String> list = new ArrayList<>();
+
+        input = input.replaceAll("\\s+", "").toLowerCase();
+
+        if (!input.matches("[0-9Dd+]+")) {
+            System.out.println("invalid input");
+            return;
+        }
+
+        if (input.contains("+")) {
+            String[] parts = input.split("\\+");
+            for (String part : parts) {
+                if (!part.isEmpty()) {
+                    list.add(part);
+                }
+            }
+        } else {
+            // jedan tip kockice (npr. 3d20)
+            list.add(input);
+        }
+
+        System.out.println(list);
+        DiceRoller.mainResult(list);
+    }
 
     public static int diceType (String input){
         String diceType = input.toLowerCase().split("d")[1];
-        int diceTypeToInt = Integer.parseInt(diceType);
-//        System.out.println("Type of Dice = " + diceTypeToInt);
-        return diceTypeToInt;
+        return Integer.parseInt(diceType);
     }
 
     public static boolean syntaxCorrectness (String input) {
@@ -20,12 +46,10 @@ public class DiceDecoder {
         int numberOfDicesToInt = Integer.parseInt(numberOfDices);
 
         if(numberOfDicesLimit(numberOfDicesToInt)){
-//           System.out.println("Number of Dices = " + numberOfDicesToInt);
            return numberOfDicesToInt;
        }
 
         return -1;
-
     }
 
     public static boolean numberOfDicesLimit (int numberOfDices){
@@ -34,23 +58,6 @@ public class DiceDecoder {
             return false;
         }else{
             return true;
-        }
-    }
-
-    public static void prepoznavanjeKockia(String kockice){
-        if(kockice.contains("+")){
-            System.out.println("imaju plus");
-            String dice = kockice.split("\\+")[0];
-            System.out.println("this is dice one " + dice);
-            String rest = kockice.split("\\+")[1];
-            System.out.println("this is rest " + rest);
-
-            DiceRoller.initiationOfProcess(dice, rest);
-
-//            ostalo je da se radi sada za vise kockica, idemo do 7 kockica, toliko opcija ima poyy
-        }else{
-            System.out.println("nemaju plus");
-            DiceRoller.initiationOfProcess(kockice);
         }
     }
 
