@@ -6,10 +6,11 @@ public class Main {
 
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 
+
         System.out.println("Enter dice");
         String dicesToRoll = myObj.nextLine();
 
-        Dev.mainProcessLoop(dicesToRoll); // <---- testiram loop
+        RollerLogic.mainProcessLoop(dicesToRoll); // <---- testiram loop
 //        DiceDecoder.validateAndInitializeDiceRoll(dicesToRoll); <--- ovo je vazece
 
     }
