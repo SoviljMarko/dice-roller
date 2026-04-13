@@ -58,9 +58,5 @@ public class Dev {
         }
     }
 
-
-    // ovo sada treba implementirati u ceo proces, ovo je za kreiranje baze podataka
-    // objasnjenje za ovo ima  u chat-gpt
-
 }
 
