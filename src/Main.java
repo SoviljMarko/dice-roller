@@ -6,13 +6,23 @@ public class Main {
         try {
             Dev dev = new Dev();
 
-            Javalin app = Javalin.create().start(8080);
+            Javalin app = Javalin.create(config -> {
+                config.bundledPlugins.enableCors(cors -> {
+                    cors.addRule(rule -> {
+                        rule.anyHost();
+                    });
+                });
+            }).start(8080);
 
             app.get("/roll", ctx -> {
-                SumOfAllDices.list.clear(); // ← dodaj ovo
+                SumOfAllDices.list.clear();
                 String dice = ctx.queryParam("dice");
-                DiceDecoder.validateAndInitializeDiceRoll(dice, dev);
-                ctx.result("OK");
+                RollResult result = DiceDecoder.validateAndInitializeDiceRoll(dice, dev);
+                if (result == null) {
+                    ctx.status(400).result("Invalid input!");
+                    return;
+                }
+                ctx.json(result);
             });
 
         } catch (SQLException e) {

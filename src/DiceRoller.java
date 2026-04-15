@@ -51,7 +51,7 @@ public class DiceRoller {
 //    }
 
 
-    public static void mainResult(ArrayList<String> lista, String originalInput, Dev dev) {
+    public static RollResult mainResult(ArrayList<String> lista, String originalInput, Dev dev) {
         int ampSum = 0;
         int dicesSum = 0;
 
@@ -59,7 +59,7 @@ public class DiceRoller {
             if (DiceDecoder.syntaxCorrectness(s)) {
                 int numberOfDices = DiceDecoder.numberOfDices(s);
                 int diceType = DiceDecoder.diceType(s);
-                dicesSum += SumOfAllDices.sumOfRolls(numberOfDices, diceType); // ← bio bug, sad je +=
+                dicesSum += SumOfAllDices.sumOfRolls(numberOfDices, diceType);
             } else if (DiceDecoder.isItDamageAmplifierCorrect(s)) {
                 ampSum += DiceDecoder.isItDamageAmplifier(s);
             }
@@ -78,6 +78,7 @@ public class DiceRoller {
         } catch (SQLException e) {
             System.out.println("Failed to save roll: " + e.getMessage());
         }
+        return new RollResult(SumOfAllDices.list, ampSum, total);
     }
 
     public static int oneRoll(int diceType) {
@@ -86,6 +87,6 @@ public class DiceRoller {
         for (int t : validTypes) {
             if (diceType == t) return random.nextInt(1, diceType + 1);
         }
-        return -1; // nepoznat tip kockice
+        return -1;
     }
 }

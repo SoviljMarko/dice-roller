@@ -74,19 +74,26 @@ public class DiceDecoder {
 
 
 
-    public static void validateAndInitializeDiceRoll(String input, Dev dev) {
+    public static RollResult validateAndInitializeDiceRoll(String input, Dev dev) {
         ArrayList<String> list = new ArrayList<>();
         input = input.replaceAll("\\s+", "").toLowerCase();
 
+        if (input.startsWith("d")) {
+            input = "1" + input;
+        }
+
         if (!input.matches("[0-9d+]+")) {
             System.out.println("Invalid input");
-            return;
+            return null;
         }
 
         if (input.contains("+")) {
             String[] parts = input.split("\\+");
             for (String part : parts) {
                 if (!part.isEmpty()) {
+                    if (part.startsWith("d")) {
+                        part = "1" + part;
+                    }
                     list.add(part);
                 }
             }
@@ -95,7 +102,7 @@ public class DiceDecoder {
         }
 
         System.out.println(list);
-        DiceRoller.mainResult(list, input, dev);
+        return DiceRoller.mainResult(list, input, dev);
     }
 
     public static int diceType(String input) {
