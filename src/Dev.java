@@ -1,7 +1,9 @@
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-    // DiceDatabase -- originalno ime
+// DiceDatabase -- originalno ime
 public class Dev {
 
     private Connection conn;
@@ -57,6 +59,24 @@ public class Dev {
             conn.close();
         }
     }
+
+        public List<RollResult> getRolls() throws SQLException {
+            String sql = "SELECT * FROM rolls ORDER BY id DESC LIMIT 20";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            List<RollResult> results = new ArrayList<>();
+
+            while (rs.next()) {
+                String rollsString = rs.getString("rolls");
+                int modifier = rs.getInt("modifier");
+                int total = rs.getInt("total");
+
+                results.add(new RollResult(rollsString, modifier, total));
+            }
+
+            return results;
+        }
 
 }
 

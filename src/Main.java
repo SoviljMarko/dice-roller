@@ -1,5 +1,8 @@
 import io.javalin.Javalin;
+
 import java.sql.SQLException;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -25,10 +28,16 @@ public class Main {
                 ctx.json(result);
             });
 
+            app.get("/history", ctx -> {
+                List<RollResult> results = dev.getRolls();
+                ctx.json(results);
+            });
+
         } catch (SQLException e) {
             System.out.println("Database error: " + e.getMessage());
         }
     }
+
 
 //    public static void main(String[] args) {
 //        try {
